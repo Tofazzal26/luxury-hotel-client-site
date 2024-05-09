@@ -3,6 +3,7 @@ import Root from "../../Pages/Root/Root";
 import Home from "../../Pages/Home/Home";
 import Login from "./../../Pages/Login/Login";
 import AvailableFoods from "./../../Pages/AvailableFoods/AvailableFoods";
+import Register from "../../Pages/Register/Register";
 
 const Router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const Router = createBrowserRouter([
       {
         path: "/AvailableFoods",
         element: <AvailableFoods />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
