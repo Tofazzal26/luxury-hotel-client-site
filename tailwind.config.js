@@ -2,7 +2,14 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        navBar: "0 2px 4px -1px rgba(0,0,0,0.25)",
+      },
+    },
+    fontFamily: {
+      slab: "'Roboto Slab', serif",
+    },
   },
   plugins: [require("daisyui")],
 };
