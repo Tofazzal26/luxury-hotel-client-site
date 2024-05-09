@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo/logo.png";
 
 const Navbar = () => {
@@ -14,12 +15,24 @@ const Navbar = () => {
 
           <div className="mr-[30px] lg:flex-1">
             <ul className="flex gap-4">
-              <li className="font-bold text-[#363f4d] lg:text-base text-[12px]">
-                Home
-              </li>
-              <li className="font-bold text-[#363f4d] lg:text-base text-[12px]">
-                Available Foods
-              </li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#94c341]" : "text-[#363f4d]"
+                }
+                to="/"
+              >
+                <li className="font-bold lg:text-base text-[12px]">Home</li>
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#94c341]" : "text-[#363f4d]"
+                }
+                to="/AvailableFoods"
+              >
+                <li className="font-bold  lg:text-base text-[12px]">
+                  Available Foods
+                </li>
+              </NavLink>
             </ul>
           </div>
 
@@ -95,9 +108,11 @@ const Navbar = () => {
               </ul>
             </div>
             <div>
-              <button className="bg-[#94c341] text-white lg:px-6 lg:py-2 px-3 py-2 text-[12px] lg:text-base rounded-md font-semibold">
-                Login
-              </button>
+              <NavLink to="/login">
+                <button className="bg-[#94c341] text-white lg:px-6 lg:py-2 px-3 py-2 text-[12px] lg:text-base rounded-md font-semibold">
+                  Login
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
