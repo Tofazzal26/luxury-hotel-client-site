@@ -11,7 +11,7 @@ const NotFound = () => {
           Please check the address and try again
         </p>
         <NavLink to="/">
-          <button className="px-6 py-3 bg-[#79a100] text-white text-xl font-semibold rounded-md">
+          <button className="px-6 py-3 bg-[#ffae4c] text-white text-xl font-semibold rounded-md">
             Go Home
           </button>
         </NavLink>

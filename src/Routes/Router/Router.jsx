@@ -9,6 +9,8 @@ import MyFoodRequest from "../../Pages/MyFoodRequest/MyFoodRequest";
 import ManageMyFood from "../../Pages/ManageMyFood/ManageMyFood";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import NotFound from "../../Pages/NotFound/NotFound";
+import Rooms from "../../Pages/Rooms/Rooms";
+import MyBooking from "../../Pages/MyBooking/MyBooking";
 
 const Router = createBrowserRouter([
   {
@@ -40,21 +42,15 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
-        path: "/myFoodRequest",
-        element: (
-          <PrivateRoute>
-            <MyFoodRequest />
-          </PrivateRoute>
-        ),
+        path: "/myBooking",
+        element: <MyBooking />,
       },
+
       {
-        path: "/manageMyFood",
-        element: (
-          <PrivateRoute>
-            <ManageMyFood />
-          </PrivateRoute>
-        ),
+        path: "/rooms",
+        element: <Rooms />,
       },
     ],
   },

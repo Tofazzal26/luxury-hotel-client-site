@@ -42,20 +42,43 @@ const Navbar = () => {
                 }
                 to="/"
               >
+                <li className="font-bold lg:text-base text-[10px]">Home</li>
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
+                }
+                to="/rooms"
+              >
                 <li className="font-bold lg:text-base text-[10px]">Rooms</li>
               </NavLink>
 
               {user && (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
-                  }
-                  to="/addFood"
-                >
-                  <li className="font-bold  lg:text-base text-[10px]">
-                    Add Food
+                <>
+                  {/* <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
+                    }
+                    to="/addFood"
+                  >
+                    <li className="font-bold  lg:text-base text-[10px]">
+                      Add Food
+                    </li>
+                  </NavLink> */}
+                  <li>
+                    <a className="font-bold  lg:text-base text-[10px]">
+                      {" "}
+                      <NavLink
+                        to="/myBooking"
+                        className={({ isActive }) =>
+                          isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
+                        }
+                      >
+                        My Bookings
+                      </NavLink>
+                    </a>
                   </li>
-                </NavLink>
+                </>
               )}
             </ul>
           </div>
@@ -82,19 +105,6 @@ const Navbar = () => {
                     </li>
 
                     <li>
-                      <a className="font-semibold text-[16px]">
-                        {" "}
-                        <NavLink
-                          to="/manageMyFood"
-                          className={({ isActive }) =>
-                            isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
-                          }
-                        >
-                          My Bookings
-                        </NavLink>
-                      </a>
-                    </li>
-                    <li>
                       <button
                         onClick={handleLogOut}
                         className="font-semibold text-[16px] text-red-500"
@@ -106,7 +116,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <NavLink to="/login">
-                  <button className="bg-[#94c341] text-white lg:px-6 lg:py-2 px-3 py-2 text-[12px] lg:text-base rounded-md font-semibold">
+                  <button className="bg-[#ffae4c] text-white lg:px-6 lg:py-2 px-3 py-2 text-[12px] lg:text-base rounded-md font-semibold">
                     Login
                   </button>
                 </NavLink>

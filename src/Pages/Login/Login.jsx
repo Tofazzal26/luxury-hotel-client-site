@@ -163,13 +163,13 @@ const Login = () => {
                 </div>
               </div>
 
-              <button className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-[#94c341] text-white ">
+              <button className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-[#ffae4c] text-white ">
                 Login
               </button>
               <div>
                 <h2 className="text-center font-semibold">
                   Do not Have An Account ?{" "}
-                  <NavLink to="/register" className="text-[#94c341]">
+                  <NavLink to="/register" className="text-[#ffae4c]">
                     Register
                   </NavLink>
                 </h2>
