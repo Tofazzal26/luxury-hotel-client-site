@@ -29,7 +29,7 @@ const Navbar = () => {
               {" "}
               <a className="btn btn-ghost text-xl">
                 <img className="h-[30px] lg:h-[45px]" src={logo} alt="" />{" "}
-                <h2 className="font-bold lg:block hidden">Organic-Food</h2>
+                <h2 className="font-bold lg:block hidden">Luxury hotel</h2>
               </a>
             </NavLink>
           </div>
@@ -38,26 +38,17 @@ const Navbar = () => {
             <ul className="flex lg:gap-4 gap-3">
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "text-[#94c341]" : "text-[#363f4d]"
+                  isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
                 }
                 to="/"
               >
-                <li className="font-bold lg:text-base text-[10px]">Home</li>
+                <li className="font-bold lg:text-base text-[10px]">Rooms</li>
               </NavLink>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? "text-[#94c341]" : "text-[#363f4d]"
-                }
-                to="/AvailableFoods"
-              >
-                <li className="font-bold  lg:text-base text-[10px]">
-                  Available Foods
-                </li>
-              </NavLink>
+
               {user && (
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "text-[#94c341]" : "text-[#363f4d]"
+                    isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
                   }
                   to="/addFood"
                 >
@@ -78,7 +69,7 @@ const Navbar = () => {
                     role="button"
                     className="btn btn-ghost btn-circle avatar"
                   >
-                    <div className="w-12 rounded-full border-[3px] p-[2px] border-[#94c341]">
+                    <div className="w-12 rounded-full border-[3px] p-[2px] border-[#ffae4c]">
                       <img className="rounded-full" alt="" src={photoURL} />
                     </div>
                   </div>
@@ -92,26 +83,14 @@ const Navbar = () => {
 
                     <li>
                       <a className="font-semibold text-[16px]">
-                        <NavLink
-                          to="/myFoodRequest"
-                          className={({ isActive }) =>
-                            isActive ? "text-[#94c341]" : "text-[#363f4d]"
-                          }
-                        >
-                          My Food Request
-                        </NavLink>
-                      </a>
-                    </li>
-                    <li>
-                      <a className="font-semibold text-[16px]">
                         {" "}
                         <NavLink
                           to="/manageMyFood"
                           className={({ isActive }) =>
-                            isActive ? "text-[#94c341]" : "text-[#363f4d]"
+                            isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
                           }
                         >
-                          Manage My Foods
+                          My Bookings
                         </NavLink>
                       </a>
                     </li>
