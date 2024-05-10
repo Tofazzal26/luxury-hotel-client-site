@@ -1,13 +1,76 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import google from "../../../public/icon/google.png";
 import github from "../../../public/icon/github.png";
 import loginImg from "../../../public/login/login.gif";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import useAuthUser from "../../UseHooks/AllAuth/useAuthUser";
+import toast from "react-hot-toast";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import auth from "../../Firebase/Firebase.config";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const allAuth = useAuthUser();
+
+  const { logInEmailPassword, setNotLoading } = allAuth;
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  const googleLogin = () => {
+    setNotLoading(true);
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        toast.success("Google Login Successfully");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const githubLogin = () => {
+    setNotLoading(true);
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        toast.success("Github Login Successfully");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+
+    logInEmailPassword(email, password)
+      .then((result) => {
+        toast.success("Login Successfully");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error("Please enter a valid email & password");
+      });
+  };
 
   return (
     <div className="min-h-[calc(100vh-332px)]">
@@ -28,33 +91,45 @@ const Login = () => {
             <img src={loginImg} alt="" className="" />
           </div>
           <div className="border">
-            <form noValidate="" className="space-y-6 lg:p-8">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-6 lg:p-8"
+            >
               <div>
-                <label htmlFor="email" className="text-[15px] font-semibold">
+                <label className="text-[15px] font-semibold">
                   Username or email
                 </label>
                 <input
-                  id="email"
                   type="email"
                   name="email"
                   placeholder=""
                   className="w-full p-3 border outline-none "
+                  {...register("email", { required: true })}
                 />
+                {errors.exampleRequired && (
+                  <span className="text-red-500">
+                    This Email field is required
+                  </span>
+                )}
               </div>
               <div>
-                <label htmlFor="password" className="text-[15px] font-semibold">
-                  Passwords
-                </label>
+                <label className="text-[15px] font-semibold">Passwords</label>
                 <div className="relative">
                   <input
-                    id="password"
                     name="password"
                     type={showPassword ? "text" : "password"}
                     className="w-full p-3 border outline-none  "
+                    {...register("password", { required: true })}
                   />
+                  {errors.exampleRequired && (
+                    <span className="text-red-500">
+                      This Password field is required
+                    </span>
+                  )}
+
                   <span
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute top-[16px] right-[16px]"
+                    className="absolute cursor-pointer top-[16px] right-[16px]"
                   >
                     {showPassword ? (
                       <FaEye size={20} />
@@ -68,13 +143,19 @@ const Login = () => {
               <div>
                 <div className="text-center space-x-4">
                   <button>
-                    <span className="font-semibold flex items-center gap-2 border p-2">
-                      <img className="h-[30px]" src={google} alt="" />
+                    <span
+                      onClick={googleLogin}
+                      className="font-semibold flex items-center gap-2 border p-2"
+                    >
+                      <img className="h-[27px]" src={google} alt="" />
                       Continue Google
                     </span>
                   </button>
                   <button>
-                    <span className="font-semibold flex items-center gap-2 border p-2">
+                    <span
+                      onClick={githubLogin}
+                      className="font-semibold flex items-center gap-2 border p-2"
+                    >
                       <img className="h-[30px]" src={github} alt="" />
                       Continue Github
                     </span>
