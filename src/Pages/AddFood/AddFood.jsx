@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
-import addFood from "../../../public/logo/logo.png";
 const AddFood = () => {
   const [startDate, setStartDate] = useState(new Date());
 
@@ -135,7 +134,7 @@ const AddFood = () => {
                     </div>
                     <div>
                       <label className="text-[15px] font-semibold">
-                        Pickup Location
+                        Expired Date/Time
                       </label>
                       <br />
                       <h2 className="w-full border">

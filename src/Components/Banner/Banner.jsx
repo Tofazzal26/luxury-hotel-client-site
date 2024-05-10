@@ -5,7 +5,7 @@ import banner3 from "../../../public/banner/banner3.jpg";
 import banner4 from "../../../public/banner/banner4.jpg";
 const Banner = () => {
   return (
-    <div className="my-[120px]">
+    <div className="mt-[120px]">
       <Carousel enableAutoPlay autoPlaySpeed={2000}>
         <div className="w-full rounded-md">
           <img
