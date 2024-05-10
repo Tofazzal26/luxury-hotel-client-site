@@ -46,7 +46,7 @@ const Footer = () => {
             <h6 className="text-black text-xl font-semibold">
               Join Our Newsletter Now
             </h6>
-            <fieldset className="form-control w-80 space-y-2">
+            <fieldset className="form-control lg:w-80 space-y-2">
               <label className="label">
                 <span className="label-text font-semibold text-[14px]">
                   Get E-mail updates about our latest shop and special offers.s
@@ -58,7 +58,7 @@ const Footer = () => {
                   placeholder="Your Email Address"
                   className="input input-bordered join-item"
                 />
-                <button className="btn bg-[#94c341] text-white join-item">
+                <button className="btn bg-[#94c341] text-white join-item px-2 lg:text-base lg:px-4 text-[12px] py-2">
                   Subscribe
                 </button>
               </div>

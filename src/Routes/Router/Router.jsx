@@ -34,14 +34,6 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addFood",
-        element: <AddFood />,
-      },
-      {
-        path: "/addFood",
-        element: <AddFood />,
-      },
-      {
-        path: "/addFood",
         element: (
           <PrivateRoute>
             <AddFood />

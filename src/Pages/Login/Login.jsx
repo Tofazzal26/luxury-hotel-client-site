@@ -106,7 +106,7 @@ const Login = () => {
                   className="w-full p-3 border outline-none "
                   {...register("email", { required: true })}
                 />
-                {errors.exampleRequired && (
+                {errors.email && (
                   <span className="text-red-500">
                     This Email field is required
                   </span>
@@ -121,7 +121,7 @@ const Login = () => {
                     className="w-full p-3 border outline-none  "
                     {...register("password", { required: true })}
                   />
-                  {errors.exampleRequired && (
+                  {errors.password && (
                     <span className="text-red-500">
                       This Password field is required
                     </span>
@@ -163,10 +163,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <button
-                type="Login"
-                className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-[#94c341] text-white "
-              >
+              <button className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-[#94c341] text-white ">
                 Login
               </button>
               <div>

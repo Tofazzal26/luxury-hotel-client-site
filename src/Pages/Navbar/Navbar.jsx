@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full top-0 fixed z-50 shadow-navBar py-2">
+    <div className="w-full top-0 fixed z-50 shadow-navBar">
       <div className="bg-[#ffffff]">
         <div className="navbar container mx-auto">
           <div className="flex-1">
@@ -35,14 +35,14 @@ const Navbar = () => {
           </div>
 
           <div className="mr-[30px] lg:flex-1">
-            <ul className="flex gap-4">
+            <ul className="flex lg:gap-4 gap-3">
               <NavLink
                 className={({ isActive }) =>
                   isActive ? "text-[#94c341]" : "text-[#363f4d]"
                 }
                 to="/"
               >
-                <li className="font-bold lg:text-base text-[12px]">Home</li>
+                <li className="font-bold lg:text-base text-[10px]">Home</li>
               </NavLink>
               <NavLink
                 className={({ isActive }) =>
@@ -50,7 +50,7 @@ const Navbar = () => {
                 }
                 to="/AvailableFoods"
               >
-                <li className="font-bold  lg:text-base text-[12px]">
+                <li className="font-bold  lg:text-base text-[10px]">
                   Available Foods
                 </li>
               </NavLink>
@@ -61,7 +61,7 @@ const Navbar = () => {
                   }
                   to="/addFood"
                 >
-                  <li className="font-bold  lg:text-base text-[12px]">
+                  <li className="font-bold  lg:text-base text-[10px]">
                     Add Food
                   </li>
                 </NavLink>
@@ -78,8 +78,8 @@ const Navbar = () => {
                     role="button"
                     className="btn btn-ghost btn-circle avatar"
                   >
-                    <div className="w-12 rounded-full">
-                      <img alt="" src={photoURL} />
+                    <div className="w-12 rounded-full border-[3px] p-[2px] border-[#94c341]">
+                      <img className="rounded-full" alt="" src={photoURL} />
                     </div>
                   </div>
                   <ul

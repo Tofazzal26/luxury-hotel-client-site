@@ -79,8 +79,10 @@ const Register = () => {
                       className="w-full p-3 border outline-none "
                       {...register("name", { required: true })}
                     />
-                    {errors.exampleRequired && (
-                      <span>This Name field is required</span>
+                    {errors.name && (
+                      <span className="text-red-500">
+                        This Name field is required
+                      </span>
                     )}
                   </div>
                   <div>
@@ -94,8 +96,10 @@ const Register = () => {
                       className="w-full p-3 border outline-none "
                       {...register("photo", { required: true })}
                     />
-                    {errors.exampleRequired && (
-                      <span>This Photo field is required</span>
+                    {errors.photo && (
+                      <span className="text-red-500">
+                        This Photo field is required
+                      </span>
                     )}
                   </div>
                   <div>
@@ -107,8 +111,10 @@ const Register = () => {
                       className="w-full p-3 border outline-none "
                       {...register("email", { required: true })}
                     />
-                    {errors.exampleRequired && (
-                      <span>This Email field is required</span>
+                    {errors.email && (
+                      <span className="text-red-500">
+                        This Email field is required
+                      </span>
                     )}
                   </div>
                   <div>
@@ -122,8 +128,10 @@ const Register = () => {
                         className="w-full p-3 border outline-none  "
                         {...register("password", { required: true })}
                       />
-                      {errors.exampleRequired && (
-                        <span>This Password field is required</span>
+                      {errors.password && (
+                        <span className="text-red-500">
+                          This Password field is required
+                        </span>
                       )}
                       <span
                         onClick={() => setShowPassword(!showPassword)}
@@ -138,10 +146,7 @@ const Register = () => {
                     </div>
                   </div>
 
-                  <button
-                    type="Login"
-                    className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-[#94c341] text-white "
-                  >
+                  <button className="w-full p-3 text-sm font-bold tracking-wide uppercase rounded bg-[#94c341] text-white ">
                     Login
                   </button>
                   <div>
