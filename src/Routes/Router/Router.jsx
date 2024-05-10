@@ -7,11 +7,14 @@ import Register from "../../Pages/Register/Register";
 import AddFood from "../../Pages/AddFood/AddFood";
 import MyFoodRequest from "../../Pages/MyFoodRequest/MyFoodRequest";
 import ManageMyFood from "../../Pages/ManageMyFood/ManageMyFood";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import NotFound from "../../Pages/NotFound/NotFound";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -39,15 +42,27 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addFood",
-        element: <AddFood />,
+        element: (
+          <PrivateRoute>
+            <AddFood />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myFoodRequest",
-        element: <MyFoodRequest />,
+        element: (
+          <PrivateRoute>
+            <MyFoodRequest />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/manageMyFood",
-        element: <ManageMyFood />,
+        element: (
+          <PrivateRoute>
+            <ManageMyFood />
+          </PrivateRoute>
+        ),
       },
     ],
   },
