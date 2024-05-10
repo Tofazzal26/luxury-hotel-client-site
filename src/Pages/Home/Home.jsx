@@ -15,7 +15,6 @@ const Home = () => {
           <OurHotelLocation />
           <NewsLetter />
           <FeaturedRooms />
-          <FeaturedProducts />
           <OurBlogs />
         </div>
       </div>

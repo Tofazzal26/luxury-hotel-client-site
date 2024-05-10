@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
   return (
     <div className="mb-12">
       <h1 className="text-center my-12 font-semibold text-3xl">
-        Our Feature <span className="text-[#ffae4c]">Rooms</span>
+        Our Feature Plan <span className="text-[#ffae4c]">Hotel</span>
       </h1>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="card card-compact rounded-none border-2 p-4">
