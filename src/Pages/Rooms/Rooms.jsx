@@ -5,7 +5,7 @@ import RoomPageCard from "./RoomPageCard";
 const Rooms = () => {
   const [roomPage, setRoomPage] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:4000/rooms").then((result) => {
+    axios.get(`http://localhost:4000/rooms`).then((result) => {
       setRoomPage(result.data);
     });
   }, []);
@@ -18,10 +18,10 @@ const Rooms = () => {
             <option className="font-semibold" value="">
               Filter By Price
             </option>
-            <option className="font-semibold" value="">
+            <option className="font-semibold" value="dsc">
               Descending Order
             </option>
-            <option className="font-semibold" value="">
+            <option className="font-semibold" value="asc">
               Ascending Order
             </option>
           </select>
