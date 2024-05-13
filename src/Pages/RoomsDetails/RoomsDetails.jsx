@@ -41,7 +41,9 @@ const RoomsDetails = () => {
     const roomSize = room_size;
     const email = user?.email;
     const image = room_images;
+    // const availableStatus = availability;
     const roomName = name;
+
     const id = _id;
     const Booking = {
       email,
@@ -50,6 +52,7 @@ const RoomsDetails = () => {
       roomSize,
       newDates,
       id,
+      availability,
       image,
       roomName,
     };
@@ -128,6 +131,7 @@ const RoomsDetails = () => {
                     {availability}
                   </h3>
                   <h3 className="font-bold text-lg">{name}</h3>
+                  <h2 className="font-semibold">{description}</h2>
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <DatePicker
                       className="border-2 p-2 border-gray-500 font-semibold rounded-md"

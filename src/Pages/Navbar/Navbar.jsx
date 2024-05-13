@@ -28,7 +28,11 @@ const Navbar = () => {
             <NavLink to="/">
               {" "}
               <a className="btn btn-ghost text-xl">
-                <img className="h-[30px] lg:h-[45px]" src={logo} alt="" />{" "}
+                <img
+                  className="h-[30px] lg:h-[45px] lg:block hidden"
+                  src={logo}
+                  alt=""
+                />{" "}
                 <h2 className="font-bold lg:block hidden">Luxury hotel</h2>
               </a>
             </NavLink>
@@ -64,22 +68,35 @@ const Navbar = () => {
                     <li className="font-bold  lg:text-base text-[10px]">
                       Add Food
                     </li>
-                  </NavLink> */}
-                  <li>
-                    <a className="font-bold  lg:text-base text-[10px]">
-                      {" "}
-                      <NavLink
-                        to="/myBooking"
-                        className={({ isActive }) =>
-                          isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
-                        }
-                      >
-                        My Bookings
-                      </NavLink>
-                    </a>
-                  </li>
+                  </NavLink> */}{" "}
+                  <NavLink
+                    to="/myBooking"
+                    className={({ isActive }) =>
+                      isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
+                    }
+                  >
+                    <li className="font-bold lg:text-base text-[10px]">
+                      My Bookings
+                    </li>
+                  </NavLink>
                 </>
               )}
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
+                }
+                to="/contact"
+              >
+                <li className="font-bold lg:text-base text-[10px]">Contact</li>
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
+                }
+                to="/about"
+              >
+                <li className="font-bold lg:text-base text-[10px]">About</li>
+              </NavLink>
             </ul>
           </div>
 

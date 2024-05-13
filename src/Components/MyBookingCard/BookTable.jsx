@@ -29,12 +29,6 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
     dateObject.getMonth() + 1
   }/${dateObject.getDate()}/${dateObject.getFullYear()}`;
 
-  // useEffect(() => {
-  //   if (newDates) {
-  //     setStartDate(new Date(newDates));
-  //   }
-  // }, [newDates]);
-
   const handleDateUpdate = (event) => {
     event.preventDefault();
     axios
@@ -47,7 +41,7 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
       });
   };
 
-  const handleDeleteBook = (ids) => {
+  const handleDeleteBook = (ids, ids2) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You Want to delete ?",
@@ -69,6 +63,14 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
+              axios
+                .patch(`http://localhost:4000/deletedAvailability/${ids2}`, {
+                  availability: "Available",
+                })
+                .then((result) => {
+                  console.log(result.data);
+                });
+              // update fetch
               const filterDelete = myBook.filter(
                 (deleteBook) => deleteBook._id !== ids
               );
@@ -78,16 +80,6 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
       }
     });
   };
-
-  // const handleDeleteBook = (ids) => {
-  //   axios.delete(`http://localhost:4000/deleteBook/${ids}`).then((result) => {
-  //     console.log(result.data);
-  //     const filterDelete = myBook.filter(
-  //       (deleteBook) => deleteBook._id !== ids
-  //     );
-  //     setMyBook(filterDelete);
-  //   });
-  // };
 
   return (
     <>
@@ -118,9 +110,9 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
         <th>{formattedDate}</th>
         <td>
           <form onSubmit={handleDateUpdate}>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               <DatePicker
-                className="text-base text-red-500 font-semibold "
+                className="text-base text-red-500 font-semibold border-2 py-2 px-4 w-[120px] rounded-md border-gray-600"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
@@ -132,10 +124,15 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
         </td>
         <td>
           <button
-            onClick={() => handleDeleteBook(_id)}
+            onClick={() => handleDeleteBook(_id, id)}
             className="text-base text-white bg-red-500 font-semibold py-2 px-10 rounded-md"
           >
             Cancel
+          </button>
+        </td>
+        <td>
+          <button className="text-base text-white px-6 py-2 rounded-md bg-blue-500 font-semibold">
+            See Review
           </button>
         </td>
       </tr>

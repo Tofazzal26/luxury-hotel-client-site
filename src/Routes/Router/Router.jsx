@@ -12,6 +12,8 @@ import NotFound from "../../Pages/NotFound/NotFound";
 import Rooms from "../../Pages/Rooms/Rooms";
 import MyBooking from "../../Pages/MyBooking/MyBooking";
 import RoomsDetails from "../../Pages/RoomsDetails/RoomsDetails";
+import Contact from "../../Pages/Contact/Contact";
+import About from "../../Pages/About/About";
 
 const Router = createBrowserRouter([
   {
@@ -66,6 +68,14 @@ const Router = createBrowserRouter([
             <RoomsDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
