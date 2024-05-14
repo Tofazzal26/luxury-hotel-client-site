@@ -16,13 +16,15 @@ const RoomPageCard = ({ roomPage }) => {
               </span>
             </div>
           </figure>
-        </NavLink>
 
-        <div className="card-body space-y-0">
-          <h3 className="font-bold text-[16px] text-red-500">{availability}</h3>
-          <h2 className="card-title text-2xl">{name}</h2>
-          <p className="text-lg">{description}</p>
-        </div>
+          <div className="card-body space-y-0">
+            <h3 className="font-bold text-[16px] text-red-500">
+              {availability}
+            </h3>
+            <h2 className="card-title text-2xl">{name}</h2>
+            <p className="text-lg">{description}</p>
+          </div>
+        </NavLink>
       </div>
     </div>
   );

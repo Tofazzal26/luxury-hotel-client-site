@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import letTalk from "../../../public/About/contact.png";
 
 const Contact = () => {
@@ -7,6 +8,9 @@ const Contact = () => {
 
   return (
     <div className="min-h-[calc(100vh-332px)]">
+      <Helmet>
+        <title>Luxury Hotel || Contact</title>
+      </Helmet>
       <div className="mt-[80px]">
         <div className="container mx-auto">
           <div className="my-12">

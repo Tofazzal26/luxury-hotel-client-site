@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import about1 from "../../../public/About/about1.jpg";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   return (
     <div className="min-h-[calc(100vh-332px)]">
+      <Helmet>
+        <title>Luxury Hotel || About</title>
+      </Helmet>
       <div className="mt-[80px]">
         <div>
           <h1 className="text-center text-[40px] font-semibold">About Us</h1>

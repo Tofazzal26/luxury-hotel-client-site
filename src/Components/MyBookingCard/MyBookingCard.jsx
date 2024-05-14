@@ -17,7 +17,7 @@ const MyBookingCard = ({ myBook, setMyBook }) => {
               <th className="text-lg text-black">Booking Date</th>
               <th className="text-lg text-black">Update Date</th>
               <th className="text-lg text-black">Cancelation</th>
-              <th className="text-lg text-black">Review</th>
+              <th className="text-lg text-black">Post Review</th>
             </tr>
           </thead>
           <tbody>

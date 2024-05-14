@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RoomPageCard from "./RoomPageCard";
+import { Helmet } from "react-helmet-async";
 
 const Rooms = () => {
   const [roomPage, setRoomPage] = useState([]);
@@ -12,6 +13,9 @@ const Rooms = () => {
 
   return (
     <div className="min-h-[calc(100vh-332px)]">
+      <Helmet>
+        <title>Luxury Hotel || Rooms</title>
+      </Helmet>
       <div className="mt-[80px]">
         <div className="text-center mt-12">
           <select className="border-2 text-lg font-semibold p-4">

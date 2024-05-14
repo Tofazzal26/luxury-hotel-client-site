@@ -2,12 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuthUser from "../../UseHooks/AllAuth/useAuthUser";
 
 // or via CommonJS
 const BookTable = ({ bookTable, myBook, setMyBook }) => {
   const [startDate, setStartDate] = useState(new Date());
+  const allAuth = useAuthUser();
+  const { user } = allAuth;
   // const [startDate, setStartDate] = useState(null);
 
   const {
@@ -37,6 +41,8 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
       })
       .then((result) => {
         console.log(result.data);
+        // const filter = myBook.filter((book) => book._id === id);
+        // setMyBook(filter);
         toast.success("Date update Successfully");
       });
   };
@@ -79,6 +85,31 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
           });
       }
     });
+  };
+
+  const handleReviews = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const newReviews = form.review.value;
+    const userName = form.name.value;
+    const rating = form.number.value;
+    const userImage = user?.photoURL;
+    if (rating > 5) {
+      return toast.error("Rating Maximum 5 Number Available");
+    }
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleString();
+    const allReview = [newReviews, userName, rating, formattedDate, userImage];
+    console.log(allReview);
+
+    axios
+      .patch(`http://localhost:4000/reviewUpdate/${id}`, {
+        reviews: allReview,
+      })
+      .then((data) => {
+        console.log(data.data);
+        toast.success("Review Successfully Added");
+      });
   };
 
   return (
@@ -131,9 +162,64 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
           </button>
         </td>
         <td>
-          <button className="text-base text-white px-6 py-2 rounded-md bg-blue-500 font-semibold">
-            See Review
+          {/* see details  */}
+
+          {/* Open the modal using document.getElementById('ID').showModal() method */}
+          <button
+            className="text-base text-white px-6 py-2 rounded-md bg-blue-500 font-semibold"
+            onClick={() => document.getElementById("my_modal_1").showModal()}
+          >
+            Review
           </button>
+          <NavLink to={`/roomsDetails/${id}`}>
+            <button className="text-base text-white ml-2 px-6 py-2 rounded-md bg-[#ffae4c] font-semibold">
+              See Review
+            </button>
+          </NavLink>
+          <dialog id="my_modal_1" className="modal">
+            <div className="modal-box">
+              <form onSubmit={handleReviews}>
+                <h1 className="text-center font-semibold text-2xl">
+                  Write Review
+                </h1>
+                <label className="font-semibold text-[16px]">User Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  readOnly
+                  defaultValue={user?.displayName}
+                  placeholder="Name"
+                  className="input input-bordered w-full my-2"
+                />
+                <label className="font-semibold text-[16px]">Rating</label>
+                <input
+                  type="text"
+                  name="number"
+                  placeholder="Rating"
+                  className="input input-bordered w-full my-2"
+                />
+                <label className="font-semibold text-[16px]">Review</label>
+                <textarea
+                  name="review"
+                  className="textarea textarea-bordered w-full my-2 font-semibold text-base h-[200px]"
+                  placeholder="Write Your Review"
+                ></textarea>
+
+                <button className="py-2 px-6 bg-[#ffae4c] font-semibold w-full text-lg rounded-md text-white">
+                  Submit
+                </button>
+              </form>
+              <div className="modal-action">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className=" font-semibold px-6 p-3 rounded-md text-base bg-red-500 text-white">
+                    Close
+                  </button>
+                </form>
+              </div>
+              <Toaster />
+            </div>
+          </dialog>
         </td>
       </tr>
     </>
