@@ -6,6 +6,8 @@ import OurHotelLocation from "../../Components/OurHotelLocation/OurHotelLocation
 import NewsLetter from "../../Components/NewsLetter/NewsLetter";
 import FeaturedRooms from "../../Components/FeaturedRooms/FeaturedRooms";
 import { Helmet } from "react-helmet-async";
+import OfferModal from "../../Components/OfferModal/OfferModal";
+import Gallary from "../../Components/Gallary/Gallary";
 
 const Home = () => {
   return (
@@ -18,6 +20,8 @@ const Home = () => {
           <Banner />
           <OurHotelLocation />
           <NewsLetter />
+          <OfferModal />
+          <Gallary />
           <FeaturedRooms />
           <OurBlogs />
         </div>

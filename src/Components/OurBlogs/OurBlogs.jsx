@@ -5,7 +5,11 @@ import blog3 from "../../../public/Blogs/blog3.jpg";
 const OurBlogs = () => {
   return (
     <div className="mb-12">
-      <h1 className="text-center my-10 font-semibold text-3xl">
+      <h1
+        data-aos="fade-up-left"
+        data-aos-duration="1000"
+        className="text-center my-10 font-semibold text-3xl"
+      >
         Our Hotel <span className="text-[#ffae4c]">Blogs</span>
       </h1>
       <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">

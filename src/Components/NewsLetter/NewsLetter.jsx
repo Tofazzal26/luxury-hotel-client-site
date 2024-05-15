@@ -38,7 +38,11 @@ const NewsLetter = () => {
               className="space-y-2 lg:p-8"
             >
               <div className="space-y-4">
-                <h1 className="text-center font-semibold text-3xl">
+                <h1
+                  data-aos="fade-left"
+                  data-aos-duration="1000"
+                  className="text-center font-semibold text-3xl"
+                >
                   JOIN OUR NEWSLETTER
                 </h1>
                 <p className="font-semibold text-lg text-center mx-auto text-[#8a8a8a] lg:w-[500px]">

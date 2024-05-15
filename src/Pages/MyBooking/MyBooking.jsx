@@ -9,6 +9,7 @@ const MyBooking = () => {
   const { user } = allAuth;
 
   const [myBook, setMyBook] = useState([]);
+  const [refetch, setRefetch] = useState();
   useEffect(() => {
     axios
       .get(`http://localhost:4000/myBookingRoom/${user?.email}`, {
@@ -18,6 +19,7 @@ const MyBooking = () => {
         setMyBook(result.data);
       });
   }, [user?.email]);
+  // setRefetch(Date.now())
 
   return (
     <div className="min-h-[calc(100vh-332px)]">
@@ -26,7 +28,11 @@ const MyBooking = () => {
       </Helmet>
       <div className="mt-[80px]">
         <div>
-          <MyBookingCard myBook={myBook} setMyBook={setMyBook} />
+          <MyBookingCard
+            myBook={myBook}
+            setMyBook={setMyBook}
+            setRefetch={setRefetch}
+          />
         </div>
       </div>
     </div>

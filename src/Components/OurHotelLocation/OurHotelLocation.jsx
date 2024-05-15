@@ -3,7 +3,11 @@ const OurHotelLocation = () => {
   return (
     <div>
       <div>
-        <h1 className="text-center my-12 font-semibold text-3xl">
+        <h1
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="text-center my-12 font-semibold text-3xl"
+        >
           Our Hotel <span className="text-[#ffae4c]">Location</span>
         </h1>
       </div>

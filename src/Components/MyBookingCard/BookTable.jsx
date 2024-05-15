@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import useAuthUser from "../../UseHooks/AllAuth/useAuthUser";
 
 // or via CommonJS
-const BookTable = ({ bookTable, myBook, setMyBook }) => {
+const BookTable = ({ bookTable, myBook, setMyBook, setRefetch }) => {
   const [startDate, setStartDate] = useState(new Date());
   const allAuth = useAuthUser();
   const { user } = allAuth;
@@ -26,12 +26,31 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
     _id,
     Booking,
   } = bookTable || {};
+  const [bookingDate, setBookingDate] = useState(newDates);
+  const [cancellationDate, setCancellationDate] = useState(new Date());
 
   let dateString = newDates;
   let dateObject = new Date(dateString);
   let formattedDate = `${
     dateObject.getMonth() + 1
   }/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+
+  // 1din age change hobe na
+
+  let dateString2 = cancellationDate;
+  let dateObject2 = new Date(dateString2);
+  let formattedDate2 = `${
+    dateObject2.getMonth() + 1
+  }/${dateObject2.getDate()}/${dateObject2.getFullYear()}`;
+
+  let dateString3 = bookingDate;
+  let dateObject3 = new Date(dateString3);
+  let formattedDate3 = `${
+    dateObject3.getMonth() + 1
+  }/${dateObject3.getDate()}/${dateObject3.getFullYear()}`;
+
+  console.log(formattedDate2);
+  console.log(formattedDate3);
 
   const handleDateUpdate = (event) => {
     event.preventDefault();
@@ -57,6 +76,12 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
+      // cancel 2day ago codeing
+
+      if (bookingDate < cancellationDate) {
+        return toast.error("Hobe na vai 1din age bolte hobe");
+      }
+
       if (result.isConfirmed) {
         fetch(`http://localhost:4000/deleteBook/${ids}`, {
           method: "DELETE",
@@ -169,10 +194,10 @@ const BookTable = ({ bookTable, myBook, setMyBook }) => {
             className="text-base text-white px-6 py-2 rounded-md bg-blue-500 font-semibold"
             onClick={() => document.getElementById("my_modal_1").showModal()}
           >
-            Review
+            Add Review
           </button>
           <NavLink to={`/roomsDetails/${id}`}>
-            <button className="text-base text-white ml-2 px-6 py-2 rounded-md bg-[#ffae4c] font-semibold">
+            <button className="text-base text-white ml-2 px-6 py-2 rounded-md bg-gray-500 font-semibold">
               See Review
             </button>
           </NavLink>

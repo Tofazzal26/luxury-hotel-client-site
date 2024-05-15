@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAxKr6LyR81hLbkZCXgWpGH5eTIPy6QFDI",
-  authDomain: "organic-foods-59169.firebaseapp.com",
-  projectId: "organic-foods-59169",
-  storageBucket: "organic-foods-59169.appspot.com",
-  messagingSenderId: "596584196852",
-  appId: "1:596584196852:web:5c9a59590afbc89733cca1",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

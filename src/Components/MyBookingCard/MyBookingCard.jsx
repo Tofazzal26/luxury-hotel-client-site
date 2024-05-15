@@ -2,7 +2,7 @@ import { data } from "autoprefixer";
 import React, { useState } from "react";
 import BookTable from "./BookTable";
 
-const MyBookingCard = ({ myBook, setMyBook }) => {
+const MyBookingCard = ({ myBook, setMyBook, setRefetch }) => {
   return (
     <div className="container mx-auto">
       <div className="overflow-x-auto">
@@ -27,6 +27,7 @@ const MyBookingCard = ({ myBook, setMyBook }) => {
                 bookTable={bookTable}
                 setMyBook={setMyBook}
                 myBook={myBook}
+                setRefetch={setRefetch}
               />
             ))}
           </tbody>

@@ -6,7 +6,11 @@ const RoomPageCard = ({ roomPage }) => {
 
   return (
     <div>
-      <div className="card card-compact bg-base-100 h-full rounded-none shadow-xl">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className="card card-compact bg-base-100 h-full rounded-none shadow-xl"
+      >
         <NavLink to={`/roomsDetails/${_id}`}>
           <figure className="relative">
             <img className="h-[300px] w-full" src={room_images} alt="" />
