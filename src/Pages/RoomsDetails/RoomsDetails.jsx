@@ -31,7 +31,7 @@ const RoomsDetails = () => {
     _id,
   } = roomsLoadedData || {};
 
-  console.log(reviews);
+  // console.log(reviews);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -61,17 +61,22 @@ const RoomsDetails = () => {
       roomName,
     };
 
-    axios.post("http://localhost:4000/myBooking", Booking).then((result) => {
-      toast.success("Confirm Your Booking");
-      console.log(result.data);
-    });
+    axios
+      .post("https://luxury-hotel-server-beryl.vercel.app/myBooking", Booking)
+      .then((result) => {
+        toast.success("Confirm Your Booking");
+        // console.log(result.data);
+      });
 
     axios
-      .patch(`http://localhost:4000/availableRooms/${_id}`, {
-        availability: "Unavailable",
-      })
+      .patch(
+        `https://luxury-hotel-server-beryl.vercel.app/availableRooms/${_id}`,
+        {
+          availability: "Unavailable",
+        }
+      )
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
       });
   };
 

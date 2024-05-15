@@ -6,9 +6,11 @@ import { Helmet } from "react-helmet-async";
 const Rooms = () => {
   const [roomPage, setRoomPage] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:4000/rooms`).then((result) => {
-      setRoomPage(result.data);
-    });
+    axios
+      .get(`https://luxury-hotel-server-beryl.vercel.app/rooms`)
+      .then((result) => {
+        setRoomPage(result.data);
+      });
   }, []);
 
   const handleSort = (criteria) => {

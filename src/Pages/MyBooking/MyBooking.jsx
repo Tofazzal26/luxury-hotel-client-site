@@ -12,9 +12,12 @@ const MyBooking = () => {
   const [refetch, setRefetch] = useState();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/myBookingRoom/${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://luxury-hotel-server-beryl.vercel.app/myBookingRoom/${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((result) => {
         setMyBook(result.data);
       });

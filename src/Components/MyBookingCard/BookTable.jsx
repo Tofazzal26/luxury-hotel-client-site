@@ -52,11 +52,11 @@ const BookTable = ({ bookTable, myBook, setMyBook, setRefetch }) => {
   const handleDateUpdate = (event) => {
     event.preventDefault();
     axios
-      .patch(`http://localhost:4000/updateDate/${_id}`, {
+      .patch(`https://luxury-hotel-server-beryl.vercel.app/updateDate/${_id}`, {
         newDates: startDate,
       })
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
         // const filter = myBook.filter((book) => book._id === id);
         // setMyBook(filter);
         toast.success("Date update Successfully");
@@ -80,9 +80,12 @@ const BookTable = ({ bookTable, myBook, setMyBook, setRefetch }) => {
       // }
 
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/deleteBook/${ids}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://luxury-hotel-server-beryl.vercel.app/deleteBook/${ids}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -92,11 +95,14 @@ const BookTable = ({ bookTable, myBook, setMyBook, setRefetch }) => {
                 icon: "success",
               });
               axios
-                .patch(`http://localhost:4000/deletedAvailability/${ids2}`, {
-                  availability: "Available",
-                })
+                .patch(
+                  `https://luxury-hotel-server-beryl.vercel.app/deletedAvailability/${ids2}`,
+                  {
+                    availability: "Available",
+                  }
+                )
                 .then((result) => {
-                  console.log(result.data);
+                  // console.log(result.data);
                 });
               // update fetch
               const filterDelete = myBook.filter(
@@ -122,14 +128,17 @@ const BookTable = ({ bookTable, myBook, setMyBook, setRefetch }) => {
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleString();
     const allReview = [newReviews, userName, rating, formattedDate, userImage];
-    console.log(allReview);
+    // console.log(allReview);
 
     axios
-      .patch(`http://localhost:4000/reviewUpdate/${id}`, {
-        reviews: allReview,
-      })
+      .patch(
+        `https://luxury-hotel-server-beryl.vercel.app/reviewUpdate/${id}`,
+        {
+          reviews: allReview,
+        }
+      )
       .then((data) => {
-        console.log(data.data);
+        // console.log(data.data);
         toast.success("Review Successfully Added");
       });
   };

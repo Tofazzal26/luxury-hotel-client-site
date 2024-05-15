@@ -6,9 +6,11 @@ const FeaturedRooms = () => {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/feature_room").then((data) => {
-      setRooms(data.data);
-    });
+    axios
+      .get("https://luxury-hotel-server-beryl.vercel.app/feature_room")
+      .then((data) => {
+        setRooms(data.data);
+      });
   }, []);
 
   return (

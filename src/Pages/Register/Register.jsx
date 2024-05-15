@@ -29,7 +29,7 @@ const Register = () => {
     const password = data.password;
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         updateUserProfile(name, photo)
           .then(() => {
             setProfileLoad(true);
@@ -37,11 +37,11 @@ const Register = () => {
             toast.success("Register Successful");
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 

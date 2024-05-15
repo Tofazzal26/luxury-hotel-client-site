@@ -23,24 +23,24 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         axios
           .post(
-            `http://localhost:4000/jwt`,
+            `https://luxury-hotel-server-beryl.vercel.app/jwt`,
             { logged },
             { withCredentials: true }
           )
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
           });
       } else {
         axios
           .post(
-            `http://localhost:4000/logout`,
+            `https://luxury-hotel-server-beryl.vercel.app/logout`,
             { logged },
             {
               withCredentials: true,
             }
           )
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
           });
       }
       setNotLoading(false);
@@ -80,6 +80,7 @@ const AuthProvider = ({ children }) => {
     setNotLoading,
     logOut,
     notLoading,
+    setUser,
   };
 
   return (
