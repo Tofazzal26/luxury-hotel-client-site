@@ -12,6 +12,13 @@ import gallery10 from "../../../public/Gellary/Gelery10.jpg";
 const Gallary = () => {
   return (
     <div>
+      <h1
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        className="text-center text-3xl my-12 font-semibold"
+      >
+        Our Special <span className="text-red-500">Gallery </span>
+      </h1>
       <section className="py-6 dark:bg-gray-100 dark:text-gray-900">
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
           {/* Open the modal using document.getElementById('ID').showModal() method */}

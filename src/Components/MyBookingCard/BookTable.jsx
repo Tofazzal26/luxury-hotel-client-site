@@ -39,18 +39,15 @@ const BookTable = ({ bookTable, myBook, setMyBook, setRefetch }) => {
 
   let dateString2 = cancellationDate;
   let dateObject2 = new Date(dateString2);
-  let formattedDate2 = `${
+  let CancelDate = `${
     dateObject2.getMonth() + 1
   }/${dateObject2.getDate()}/${dateObject2.getFullYear()}`;
 
   let dateString3 = bookingDate;
   let dateObject3 = new Date(dateString3);
-  let formattedDate3 = `${
+  let newBookingDate = `${
     dateObject3.getMonth() + 1
   }/${dateObject3.getDate()}/${dateObject3.getFullYear()}`;
-
-  console.log(formattedDate2);
-  console.log(formattedDate3);
 
   const handleDateUpdate = (event) => {
     event.preventDefault();
@@ -78,9 +75,9 @@ const BookTable = ({ bookTable, myBook, setMyBook, setRefetch }) => {
     }).then((result) => {
       // cancel 2day ago codeing
 
-      if (bookingDate < cancellationDate) {
-        return toast.error("Hobe na vai 1din age bolte hobe");
-      }
+      // if (CancelDate > newBookingDate) {
+      //   return toast.error("No bro, you have to say one day before");
+      // }
 
       if (result.isConfirmed) {
         fetch(`http://localhost:4000/deleteBook/${ids}`, {

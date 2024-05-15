@@ -18,7 +18,11 @@ const OfferModal = () => {
 
   return (
     <>
-      <h1 className="text-center text-3xl font-semibold">
+      <h1
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        className="text-center text-3xl font-semibold"
+      >
         Special Offer <span className="text-red-500">Available</span>
       </h1>
       {showModal && (
