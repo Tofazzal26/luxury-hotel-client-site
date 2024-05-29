@@ -14,6 +14,8 @@ import MyBooking from "../../Pages/MyBooking/MyBooking";
 import RoomsDetails from "../../Pages/RoomsDetails/RoomsDetails";
 import Contact from "../../Pages/Contact/Contact";
 import About from "../../Pages/About/About";
+import Blog from "../../Pages/Blog/Blog";
+import AddBlogs from "../../Pages/AddBlogs/AddBlogs";
 
 const Router = createBrowserRouter([
   {
@@ -58,6 +60,14 @@ const Router = createBrowserRouter([
       {
         path: "/rooms",
         element: <Rooms />,
+      },
+      {
+        path: "/blogs",
+        element: <Blog />,
+      },
+      {
+        path: "/addBlogs",
+        element: <AddBlogs />,
       },
       {
         path: "/roomsDetails/:id",

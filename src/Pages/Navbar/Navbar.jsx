@@ -76,6 +76,14 @@ const Navbar = () => {
                 <li className="font-bold lg:text-base text-[10px]">Rooms</li>
               </NavLink>
 
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-[#ffae4c]" : "text-[#363f4d]"
+                }
+                to="/blogs"
+              >
+                <li className="font-bold lg:text-base text-[10px]">Blogs</li>
+              </NavLink>
               {user && (
                 <>
                   {/* <NavLink
