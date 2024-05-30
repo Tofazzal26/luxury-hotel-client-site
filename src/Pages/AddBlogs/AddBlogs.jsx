@@ -27,13 +27,15 @@ const AddBlogs = () => {
     const country = data.country;
     const blog = { name, photo, title, description, country };
 
-    axios.post("http://localhost:4000/blogs", blog).then((res) => {
-      if (res.data.insertedId) {
-        toast.success("Blog Upload Successful");
-        reset();
-        navigate("/blogs");
-      }
-    });
+    axios
+      .post("https://luxury-hotel-server-beryl.vercel.app/blogs", blog)
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Blog Upload Successful");
+          reset();
+          navigate("/blogs");
+        }
+      });
   };
 
   return (

@@ -7,9 +7,11 @@ const Blog = () => {
   const [blogData, setBlogData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:4000/blogs").then((res) => {
-      setBlogData(res.data);
-    });
+    axios
+      .get("https://luxury-hotel-server-beryl.vercel.app/blogs")
+      .then((res) => {
+        setBlogData(res.data);
+      });
   }, []);
 
   return (
